@@ -188,9 +188,9 @@ class AlgoStrategy(gamelib.AlgoCore):
                 # gamelib.debug_write("Debugging Accessing unit: {}, \n{},\n{}".format(game_state.game_map[command[1]], len(game_state.game_map[command[1]]), \
                 #                                                                      type(game_state.game_map[command[1]][0])))
                 if game_state.game_map[command[1]][0].health < 0.1 * game_state.game_map[command[1]][0].max_health:
-                    if (self.get_resource()[0] > game_state.game_map[command[1]][0].cost[0]):
+                    if (game_state.get_resource(SP) > game_state.game_map[command[1]][0].cost[0]):
                         game_state.attempt_remove(command[1])
-                        game_state.attempt_spawn(command[1])
+                        game_state.attempt_spawn(command[0], command[1])
 
 
     def place_scouts(self, game_state):
