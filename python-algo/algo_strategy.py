@@ -198,7 +198,7 @@ class AlgoStrategy(gamelib.AlgoCore):
         If Game state is greater than threshold, attempt to spawn scouts.
         """
         # gamelib.debug_write("MP vs Points: {} : {}".format(game_state.MP, self.MUthreshold))
-        if (game_state.MP > self.MUthreshold):
+        if (game_state.get_resource(MP) > self.MUthreshold):
             game_state.attempt_spawn(SCOUT, self.MUlocs["left"][0], game_state.MP / 2)
             game_state.attempt_spawn(SCOUT, self.MUlocs["left"][1], game_state.MP / 2)
             self.MUthreshold *= self.MUmultiplier
